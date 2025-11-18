@@ -27,10 +27,13 @@ class Lecturer extends DB
 
     function delete($id)
     {
+        $id = intval($id);
+        if ($id <= 0) return false;
+    
         $query = "DELETE FROM lecturers WHERE id = $id";
         return $this->execute($query);
     }
-
+    
     function update($id, $name, $nidn, $phone, $join_date)
     {
         $name = addslashes($name);

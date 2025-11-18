@@ -28,8 +28,8 @@ class LecturerView
                     <td><?= $lec['phone'] ?></td>
                     <td><?= $lec['join_date'] ?></td>
                     <td>
-                        <a href="index.php?act=edit&id=<?= $lec['id'] ?>">Edit</a> | 
-                        <a href="index.php?act=delete&id=<?= $lec['id'] ?>"
+                        <a href="index.php?table=lecturers&action=update&id=<?= $lec['id'] ?>">Edit</a> | 
+                        <a href="index.php?table=lecturers&action=delete&id=<?= $lec['id'] ?>"
                            onclick="return confirm('Delete this lecturer?');">
                            Delete
                         </a>
@@ -61,7 +61,7 @@ class LecturerView
 
             <button type="submit" name="submit">Save</button>
 
-            <a href="index.php">Cancel</a>
+            <a href="index.php?table=lecturers">Cancel</a>
         </form>
         <?php
     }
@@ -89,8 +89,19 @@ class LecturerView
 
             <button type="submit" name="submit">Update</button>
 
-            <a href="index.php">Cancel</a>
+            <a href="index.php?table=lecturers">Cancel</a>
         </form>
+        <?php
+    }
+
+    public function delete($id)
+    {
+        ?>
+        <h1>Delete Lecturer</h1>
+        <a href="index.php?table=lecturers&action=delete&id=<?= $id ?>"
+            onclick="return confirm('Delete this lecturer?');"> Delete
+        </a>
+
         <?php
     }
 }

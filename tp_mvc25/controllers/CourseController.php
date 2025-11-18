@@ -1,8 +1,9 @@
 <?php
 include_once("config.php");
-include_once("models/Course.php");
-include_once("models/Lecturer.php"); // untuk dropdown lecturer
-include_once("views/CourseView.php");
+include_once __DIR__ . '/../models/Lecturer.php';
+include_once __DIR__ . '/../models/Course.php';
+include_once __DIR__ . '/../views/CourseView.php';
+
 
 class CourseController
 {
@@ -60,7 +61,7 @@ class CourseController
             $this->course->create($course_name, $course_code, $lecturer_id, $credits);
             $this->course->close();
 
-            header("Location: index.php");
+            header("Location: index.php?table=courses");
         } 
         else {
             // Ambil daftar lecturer untuk dropdown
@@ -99,7 +100,7 @@ class CourseController
                 $this->course->update($id, $course_name, $course_code, $lecturer_id, $credits);
                 $this->course->close();
 
-                header("Location: index.php");
+                header("Location: index.php?table=courses");
             } 
             else {
                 // ===== Ambil data course berdasarkan id =====
@@ -138,7 +139,7 @@ class CourseController
             $this->course->delete($id);
             $this->course->close();
 
-            header("Location: index.php");
+            header("Location: index.php?table=courses");
         }
     }
 }

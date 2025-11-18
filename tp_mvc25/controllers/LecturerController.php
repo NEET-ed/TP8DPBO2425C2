@@ -54,7 +54,7 @@ class LecturerController
             $this->lecturer->create($name, $nidn, $phone, $join_date);
             $this->lecturer->close();
 
-            header("Location: index.php");
+            header("Location: index.php?table=lecturers");
         } else {
             // jika hanya membuka halaman add
             $view = new LecturerView();
@@ -79,7 +79,7 @@ class LecturerController
             $this->lecturer->update($id, $name, $nidn, $phone, $join_date);
             $this->lecturer->close();
 
-            header("Location: index.php");
+            header("Location: index.php?table=lecturers");
         } else {
             // Tampilkan data sebelumnya untuk form update
             $this->lecturer->open();
@@ -102,6 +102,6 @@ class LecturerController
         $this->lecturer->delete($id);
         $this->lecturer->close();
 
-        header("Location: index.php");
+        header("Location: index.php?table=lecturers");
     }
 }

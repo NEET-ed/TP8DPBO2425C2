@@ -9,7 +9,7 @@ class CourseView
     {
         ?>
         <h1>Course List</h1>
-        <a href="index.php?act=create" class="btn btn-primary">Add New Course</a>
+        <a href="index.php?table=courses?action=create" class="btn btn-primary">Add New Course</a>
         <br><br>
 
         <table border="1" cellpadding="10" cellspacing="0">
@@ -30,8 +30,8 @@ class CourseView
                     <td><?= $course['lecturer_name'] ?></td>
                     <td><?= $course['credits'] ?></td>
                     <td>
-                        <a href="index.php?act=edit&id=<?= $course['id'] ?>">Edit</a> |
-                        <a href="index.php?act=delete&id=<?= $course['id'] ?>" 
+                        <a href="index.php?table=courses?action=edit&id=<?= $course['id'] ?>">Edit</a> |
+                        <a href="index.php?table=courses?action=delete&id=<?= $course['id'] ?>" 
                            onclick="return confirm('Delete this course?')">Delete</a>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@ class CourseView
             <input type="number" name="credits" value="3" min="1"><br><br>
 
             <button type="submit" name="submit">Save</button>
-            <a href="index.php">Cancel</a>
+            <a href="index.php?table=courses">Cancel</a>
         </form>
         <?php
     }
@@ -102,7 +102,7 @@ class CourseView
             <input type="number" name="credits" value="<?= $course['credits'] ?>" min="1"><br><br>
 
             <button type="submit" name="submit">Update</button>
-            <a href="index.php">Cancel</a>
+            <a href="index.php?table=courses">Cancel</a>
         </form>
         <?php
     }
